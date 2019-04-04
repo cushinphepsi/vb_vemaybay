@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataset_BaoCao" targetNamespace="http://tempuri.org/dataset_BaoCao.xsd" xmlns:mstns="http://tempuri.org/dataset_BaoCao.xsd" xmlns="http://tempuri.org/dataset_BaoCao.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.MayBay.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="XemDoanhThuTableAdapter" GeneratorDataComponentClassName="XemDoanhThuTableAdapter" Name="XemDoanhThu" UserDataComponentName="XemDoanhThuTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MaNhatKy,nv.MaNV,TenNV,nk."MaVe", "KhachHang"."CMND", "TenKH", convert(varchar, NgayDat , 103) as NgayDat, "SanBayDi", "SanBayDen", "VeChuyenBay"."TongTien","GioDi","GioDen"
+ FROM "dbo"."HangHangKhong" inner join "dbo"."MayBay" on "HangHangKhong" ."MaHang" = "MayBay"."MaHang" 
+inner join "dbo"."ChuyenBay" on "MayBay"."MaMayBay" = "ChuyenBay"."MaMayBay"
+inner join "dbo"."TuyenBay" on "TuyenBay"."MaTuyenBay" = "ChuyenBay"."MaTuyenBay"
+inner join "dbo"."VeChuyenBay" on "ChuyenBay"."MaChuyenBay" = "VeChuyenBay"."MaChuyenBay"
+inner join "dbo"."KhachHang" on "KhachHang"."CMND" = "VeChuyenBay"."CMND" 
+inner join NhatKyThanhToan nk on nk.MaVe = VeChuyenBay.MaVe
+inner join NhanVien nv on nv.MaNV = nk.MaNV</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaNhatKy" DataSetColumn="MaNhatKy" />
+              <Mapping SourceColumn="MaNV" DataSetColumn="MaNV" />
+              <Mapping SourceColumn="MaVe" DataSetColumn="MaVe" />
+              <Mapping SourceColumn="TenKH" DataSetColumn="TenKH" />
+              <Mapping SourceColumn="NgayDat" DataSetColumn="NgayDat" />
+              <Mapping SourceColumn="SanBayDi" DataSetColumn="SanBayDi" />
+              <Mapping SourceColumn="SanBayDen" DataSetColumn="SanBayDen" />
+              <Mapping SourceColumn="GioDi" DataSetColumn="GioDi" />
+              <Mapping SourceColumn="GioDen" DataSetColumn="GioDen" />
+              <Mapping SourceColumn="TenNV" DataSetColumn="TenNV" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VeChuyenBayTableAdapter" GeneratorDataComponentClassName="VeChuyenBayTableAdapter" Name="VeChuyenBay" UserDataComponentName="VeChuyenBayTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT "MaVe", "KhachHang"."CMND", "TenKH", "NgayDat", "SanBayDi", "SanBayDen","ChoNgoiSo", "VeChuyenBay"."TongTien","GioDi","GioDen","TenHang"
+ FROM "dbo"."HangHangKhong" inner join "dbo"."MayBay" on "HangHangKhong" ."MaHang" = "MayBay"."MaHang" 
+inner join "dbo"."ChuyenBay" on "MayBay"."MaMayBay" = "ChuyenBay"."MaMayBay"
+inner join "dbo"."TuyenBay" on "TuyenBay"."MaTuyenBay" = "ChuyenBay"."MaTuyenBay"
+inner join "dbo"."VeChuyenBay" on "ChuyenBay"."MaChuyenBay" = "VeChuyenBay"."MaChuyenBay"
+inner join "dbo"."KhachHang" on "KhachHang"."CMND" = "VeChuyenBay"."CMND" where MaVe = '" &amp; MaVe &amp; "'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaVe" DataSetColumn="MaVe" />
+              <Mapping SourceColumn="CMND" DataSetColumn="CMND" />
+              <Mapping SourceColumn="NgayDat" DataSetColumn="NgayDat" />
+              <Mapping SourceColumn="ChoNgoiSo" DataSetColumn="ChoNgoiSo" />
+              <Mapping SourceColumn="TongTien" DataSetColumn="TongTien" />
+              <Mapping SourceColumn="TenKH" DataSetColumn="TenKH" />
+              <Mapping SourceColumn="SanBayDi" DataSetColumn="SanBayDi" />
+              <Mapping SourceColumn="SanBayDen" DataSetColumn="SanBayDen" />
+              <Mapping SourceColumn="TenHang" DataSetColumn="TenHang" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataset_BaoCao" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataset_BaoCao" msprop:Generator_UserDSName="dataset_BaoCao">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="XemDoanhThu" msprop:Generator_TableClassName="XemDoanhThuDataTable" msprop:Generator_TableVarName="tableXemDoanhThu" msprop:Generator_RowChangedName="XemDoanhThuRowChanged" msprop:Generator_TablePropName="XemDoanhThu" msprop:Generator_RowDeletingName="XemDoanhThuRowDeleting" msprop:Generator_RowChangingName="XemDoanhThuRowChanging" msprop:Generator_RowEvHandlerName="XemDoanhThuRowChangeEventHandler" msprop:Generator_RowDeletedName="XemDoanhThuRowDeleted" msprop:Generator_RowClassName="XemDoanhThuRow" msprop:Generator_UserTableName="XemDoanhThu" msprop:Generator_RowEvArgName="XemDoanhThuRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaNhatKy" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMaNhatKy" msprop:Generator_ColumnPropNameInRow="MaNhatKy" msprop:Generator_ColumnPropNameInTable="MaNhatKyColumn" msprop:Generator_UserColumnName="MaNhatKy" type="xs:int" />
+              <xs:element name="MaNV" msprop:Generator_ColumnVarNameInTable="columnMaNV" msprop:Generator_ColumnPropNameInRow="MaNV" msprop:Generator_ColumnPropNameInTable="MaNVColumn" msprop:Generator_UserColumnName="MaNV" type="xs:int" />
+              <xs:element name="MaVe" msprop:Generator_ColumnVarNameInTable="columnMaVe" msprop:Generator_ColumnPropNameInRow="MaVe" msprop:Generator_ColumnPropNameInTable="MaVeColumn" msprop:Generator_UserColumnName="MaVe" type="xs:int" minOccurs="0" />
+              <xs:element name="TongTien" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_UserColumnName="TongTien" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TenNV" msprop:Generator_ColumnVarNameInTable="columnTenNV" msprop:Generator_ColumnPropNameInRow="TenNV" msprop:Generator_ColumnPropNameInTable="TenNVColumn" msprop:Generator_UserColumnName="TenNV" type="xs:string" />
+              <xs:element name="SanBayDi" msprop:Generator_ColumnVarNameInTable="columnSanBayDi" msprop:Generator_ColumnPropNameInRow="SanBayDi" msprop:Generator_ColumnPropNameInTable="SanBayDiColumn" msprop:Generator_UserColumnName="SanBayDi" type="xs:string" minOccurs="0" />
+              <xs:element name="SanBayDen" msprop:Generator_ColumnVarNameInTable="columnSanBayDen" msprop:Generator_ColumnPropNameInRow="SanBayDen" msprop:Generator_ColumnPropNameInTable="SanBayDenColumn" msprop:Generator_UserColumnName="SanBayDen" type="xs:string" minOccurs="0" />
+              <xs:element name="GioDi" msprop:Generator_ColumnVarNameInTable="columnGioDi" msprop:Generator_ColumnPropNameInRow="GioDi" msprop:Generator_ColumnPropNameInTable="GioDiColumn" msprop:Generator_UserColumnName="GioDi" type="xs:duration" minOccurs="0" />
+              <xs:element name="GioDen" msprop:Generator_ColumnVarNameInTable="columnGioDen" msprop:Generator_ColumnPropNameInRow="GioDen" msprop:Generator_ColumnPropNameInTable="GioDenColumn" msprop:Generator_UserColumnName="GioDen" type="xs:duration" minOccurs="0" />
+              <xs:element name="TenKH" msprop:Generator_ColumnVarNameInTable="columnTenKH" msprop:Generator_ColumnPropNameInRow="TenKH" msprop:Generator_ColumnPropNameInTable="TenKHColumn" msprop:Generator_UserColumnName="TenKH" type="xs:string" />
+              <xs:element name="CMND" msprop:Generator_ColumnVarNameInTable="columnCMND" msprop:Generator_ColumnPropNameInRow="CMND" msprop:Generator_ColumnPropNameInTable="CMNDColumn" msprop:Generator_UserColumnName="CMND" type="xs:string" minOccurs="0" />
+              <xs:element name="NgayDat" msprop:Generator_ColumnVarNameInTable="columnNgayDat" msprop:Generator_ColumnPropNameInRow="NgayDat" msprop:Generator_ColumnPropNameInTable="NgayDatColumn" msprop:Generator_UserColumnName="NgayDat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VeChuyenBay" msprop:Generator_TableClassName="VeChuyenBayDataTable" msprop:Generator_TableVarName="tableVeChuyenBay" msprop:Generator_TablePropName="VeChuyenBay" msprop:Generator_RowDeletingName="VeChuyenBayRowDeleting" msprop:Generator_RowChangingName="VeChuyenBayRowChanging" msprop:Generator_RowEvHandlerName="VeChuyenBayRowChangeEventHandler" msprop:Generator_RowDeletedName="VeChuyenBayRowDeleted" msprop:Generator_UserTableName="VeChuyenBay" msprop:Generator_RowChangedName="VeChuyenBayRowChanged" msprop:Generator_RowEvArgName="VeChuyenBayRowChangeEvent" msprop:Generator_RowClassName="VeChuyenBayRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaVe" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMaVe" msprop:Generator_ColumnPropNameInRow="MaVe" msprop:Generator_ColumnPropNameInTable="MaVeColumn" msprop:Generator_UserColumnName="MaVe" type="xs:int" />
+              <xs:element name="CMND" msprop:Generator_ColumnVarNameInTable="columnCMND" msprop:Generator_ColumnPropNameInRow="CMND" msprop:Generator_ColumnPropNameInTable="CMNDColumn" msprop:Generator_UserColumnName="CMND" type="xs:int" />
+              <xs:element name="NgayDat" msprop:Generator_ColumnVarNameInTable="columnNgayDat" msprop:Generator_ColumnPropNameInRow="NgayDat" msprop:Generator_ColumnPropNameInTable="NgayDatColumn" msprop:Generator_UserColumnName="NgayDat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChoNgoiSo" msprop:Generator_ColumnVarNameInTable="columnChoNgoiSo" msprop:Generator_ColumnPropNameInRow="ChoNgoiSo" msprop:Generator_ColumnPropNameInTable="ChoNgoiSoColumn" msprop:Generator_UserColumnName="ChoNgoiSo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TongTien" msprop:Generator_ColumnVarNameInTable="columnTongTien" msprop:Generator_ColumnPropNameInRow="TongTien" msprop:Generator_ColumnPropNameInTable="TongTienColumn" msprop:Generator_UserColumnName="TongTien" type="xs:int" minOccurs="0" />
+              <xs:element name="SanBayDen" msprop:Generator_ColumnVarNameInTable="columnSanBayDen" msprop:Generator_ColumnPropNameInRow="SanBayDen" msprop:Generator_ColumnPropNameInTable="SanBayDenColumn" msprop:Generator_UserColumnName="SanBayDen" type="xs:string" minOccurs="0" />
+              <xs:element name="GioDi" msprop:Generator_ColumnVarNameInTable="columnGioDi" msprop:Generator_ColumnPropNameInRow="GioDi" msprop:Generator_ColumnPropNameInTable="GioDiColumn" msprop:Generator_UserColumnName="GioDi" type="xs:duration" minOccurs="0" />
+              <xs:element name="GioDen" msprop:Generator_ColumnVarNameInTable="columnGioDen" msprop:Generator_ColumnPropNameInRow="GioDen" msprop:Generator_ColumnPropNameInTable="GioDenColumn" msprop:Generator_UserColumnName="GioDen" type="xs:duration" minOccurs="0" />
+              <xs:element name="TenHang" msprop:Generator_ColumnVarNameInTable="columnTenHang" msprop:Generator_ColumnPropNameInRow="TenHang" msprop:Generator_ColumnPropNameInTable="TenHangColumn" msprop:Generator_UserColumnName="TenHang" type="xs:string" />
+              <xs:element name="TenKH" msprop:Generator_ColumnVarNameInTable="columnTenKH" msprop:Generator_ColumnPropNameInRow="TenKH" msprop:Generator_ColumnPropNameInTable="TenKHColumn" msprop:Generator_UserColumnName="TenKH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SanBayDi" msprop:Generator_ColumnVarNameInTable="columnSanBayDi" msprop:Generator_ColumnPropNameInRow="SanBayDi" msprop:Generator_ColumnPropNameInTable="SanBayDiColumn" msprop:Generator_UserColumnName="SanBayDi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:XemDoanhThu" />
+      <xs:field xpath="mstns:MaNhatKy" />
+    </xs:unique>
+    <xs:unique name="VeChuyenBay_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VeChuyenBay" />
+      <xs:field xpath="mstns:MaVe" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK__NhatKyThan__MaVe__2C3393D0" msdata:parent="VeChuyenBay" msdata:child="XemDoanhThu" msdata:parentkey="MaVe" msdata:childkey="MaVe" msprop:Generator_UserChildTable="XemDoanhThu" msprop:Generator_ChildPropName="GetNhatKyThanhToanRows" msprop:Generator_UserRelationName="FK__NhatKyThan__MaVe__2C3393D0" msprop:Generator_RelationVarName="relationFK__NhatKyThan__MaVe__2C3393D0" msprop:Generator_UserParentTable="VeChuyenBay" msprop:Generator_ParentPropName="VeChuyenBayRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
